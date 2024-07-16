@@ -3,11 +3,11 @@ import os
 
 import aws_cdk as cdk
 
-from portfolio_cdk.portfolio_cdk_stack import PortfolioCdkStack
+from portfolio_cdk.network_stack import NetworkStack
 
 
 app = cdk.App()
-PortfolioCdkStack(app, "PortfolioCdkStack",
+NetworkStack(app, "PortfolioCdkStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
@@ -20,7 +20,7 @@ PortfolioCdkStack(app, "PortfolioCdkStack",
     # Uncomment the next line if you know exactly what Account and Region you
     # want to deploy the stack to. */
 
-    #env=cdk.Environment(account='123456789012', region='us-east-1'),
+    env=cdk.Environment(region='eu-central-1'),
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
     )
