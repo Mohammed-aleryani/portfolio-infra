@@ -9,14 +9,12 @@ class NetworkStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
-        self.vpc = ec2.Vpc(self, "PortfolioVpc", max_azs=3, create_internet_gateway=True, nat_gateways=0,
+        self.vpc = ec2.Vpc(self, "PortfolioVpc", max_azs=2, create_internet_gateway=True, nat_gateways=1,
                            subnet_configuration=[
                                ec2.SubnetConfiguration(
                                    name="public", subnet_type=ec2.SubnetType.PUBLIC),
                                ec2.SubnetConfiguration(
-                                   name="private1", subnet_type=ec2.SubnetType.PRIVATE_WITH_EGRESS),
-                               ec2.SubnetConfiguration(
-                                   name="private2", subnet_type=ec2.SubnetType.PRIVATE_WITH_EGRESS)
+                                   name="private", subnet_type=ec2.SubnetType.PRIVATE_WITH_EGRESS),
                            ],
                            )
 
